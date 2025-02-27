@@ -15,7 +15,7 @@ const serverPrivateKeyPem = process.env.SERVER_PRIVATE_KEY;
 const serverPublicKeyPem = process.env.SERVER_PUBLIC_KEY;
 const dNetwork = process.env.NODE_ENV;
 
-let MAIN_DIR = "/clouds_lite/backend";
+let MAIN_DIR = "/veilmatch/backend";
 
 app.use(cors());
 app.use(express.json());

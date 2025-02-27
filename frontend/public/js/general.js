@@ -148,12 +148,12 @@
             window.location.hostname === "0.0.0.0"
         ) {
             // Use localhost URLs
-            window.NODE_URL = "http://localhost:3000/clouds_lite/backend";
+            window.NODE_URL = "http://localhost:3000/veilmatch/backend";
             window.PHP_URL = "http://localhost/cloudS/interact/server";
             window.connection = new solanaWeb3.Connection('http://127.0.0.1:8899', 'confirmed');
         } else {
             // Use live URLs
-            window.NODE_URL = "https://roynek.com/clouds_lite/backend";
+            window.NODE_URL = "https://roynek.com/veilmatch/backend";
             // window.NODE_URL = "http://localhost:3000/program-NtemKenyor/backend"; // jUST NODE LOCALHOST TO TEST HERE..
             window.PHP_URL = "https://roynek.com/cloudS/interact/server";
             window.connection = new solanaWeb3.Connection('https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317 ', 'confirmed');
