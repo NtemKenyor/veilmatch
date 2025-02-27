@@ -1,0 +1,4 @@
+*.env
+*keypair.json
+rust_program/dating_dapp/target
+backend/node_modules

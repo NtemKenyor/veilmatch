@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdraw or send Funds</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    
+    <script src="https://unpkg.com/@solana/web3.js@^1.32.0/lib/index.iife.min.js"></script> <!-- Solana SDK -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/send.css">
+</head>
+<body>
+    <div class="rain"></div>
+    <div class="bubbles"></div>
+
+    <header>
+        <a href="index.html" class="exit-button"> Back</a>
+    </header>
+
+    <div class="container">
+        <h1>Solana Wallet Management</h1>
+
+        <div class="section">
+            <button onclick="downloadPrivateKey()">Download Private Key</button>
+            <input type="file" accept="application/json" onchange="loadPrivateKeyFile(event)">
+        </div>
+
+        <div class="section">
+            <h3>Wallet Details</h3>
+            <p><strong>Public Key:</strong> <span id="publicKey">Not created</span></p>
+            <p><strong>Balance:</strong> <span id="balance">0 SOL</span></p>
+            <button onclick="getBalance()">Refresh Balance</button>
+        </div>
+
+        <div class="section">
+            <h3>Send SOL</h3>
+            <input type="text" id="recipient" placeholder="Recipient Address">
+            <input type="number" id="amount" placeholder="Amount in SOL">
+            <button onclick="sendSol()">Send SOL</button>
+            <p id="transactionStatus"></p>
+        </div>
+    </div>
+
+
+    
+</body>
+
+<script src="js/send.js" ></script>
+</html>
