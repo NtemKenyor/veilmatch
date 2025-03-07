@@ -20,17 +20,7 @@ let MAIN_DIR = "/veilmatch/backend";
 app.use(cors());
 app.use(express.json());
 
-// Serve "Hello World" at /sonic_universe/client/sonic_planet/api/
-app.get(MAIN_DIR+'/', (req, res) => {
-    res.send('Entrace Point - Hello world');
-});
-
-app.get(MAIN_DIR+"/api/metadata", async (req, res) => {
-    
-    const metadata = await fetchMetadataForAccounts(dNetwork);
-    res.json(metadata);
-});
-
+//Loading all functions here
 
 
 function getKeyFingerprint(pem) {
@@ -70,10 +60,70 @@ async function decryptPrivateKey(privateKeyPem, encryptedPrivateKeyJson) {
 }
 
 
+// Define RPC endpoints for each network
+const NETWORK_RPC_ENDPOINTS = {
+    mainnet: [
+        'https://api.mainnet-beta.solana.com', // Primary
+        'https://solana-api.projectserum.com', // Backup 1
+        'https://ssc-dao.genesysgo.net', // Backup 2
+    ],
+    main: [
+        'https://api.mainnet-beta.solana.com', // Primary
+        'https://solana-api.projectserum.com', // Backup 1
+        'https://ssc-dao.genesysgo.net', // Backup 2
+    ],
+    devnet: [
+        'https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317', // Backup 1
+        'https://api.devnet.solana.com', // Primary
+    ],
+    localnet: [
+        'http://127.0.0.1:8899', // Primary (local node)
+    ],
+};
+
+// Function to get the first available RPC endpoint for a given network
+async function getAvailableRpcEndpoint(network) {
+    const endpoints = NETWORK_RPC_ENDPOINTS[network] || [];
+    for (const url of endpoints) {
+        try {
+            const connection = new Connection(url, 'confirmed');
+            // Test the connection by fetching the latest block height
+            await connection.getBlockHeight();
+            return url; // Return the first reachable endpoint
+        } catch (error) {
+            console.warn(`RPC endpoint ${url} is unreachable:`, error);
+        }
+    }
+    throw new Error(`No reachable RPC endpoints found for network: ${network}`);
+}
+
+
+
+// Serve "Hello World" at /sonic_universe/client/sonic_planet/api/
+app.get(MAIN_DIR+'/', (req, res) => {
+    res.send('Entrace Point - Hello world');
+});
+
+app.get(MAIN_DIR+"/api/metadata", async (req, res) => {
+    const network_pref = req.query.network; // Extract the network parameter
+    console.log("Received network:", network);
+
+    // set the preferred network from users-end
+    if(network_pref != null){
+        dNetwork = network_pref;
+    }
+
+    // Get the first available RPC endpoint for the specified network
+    const rpcUrl = await getAvailableRpcEndpoint(dNetwork);
+    // const connection = new Connection(rpcUrl, 'confirmed');
+
+    const metadata = await fetchMetadataForAccounts(rpcUrl);
+    res.json(metadata);
+});
 
 
 app.post(MAIN_DIR+"/api/create-post", async (req, res) => {
-    const { encryptedPrivateKey, publicKey, title, content, image_url, author, date, others } = req.body;
+    const { encryptedPrivateKey, publicKey, title, content, image_url, author, date, network_pref, others } = req.body;
 
     if (!encryptedPrivateKey || !publicKey || !content) {
         return res.status(400).json({ error: "Missing required fields" });
@@ -114,8 +164,17 @@ app.post(MAIN_DIR+"/api/create-post", async (req, res) => {
 
         const metadata = { title, content, image_url, author, date, others };
 
+        // set the preferred network from users-end
+        if(network_pref != null){
+            dNetwork = network_pref;
+        }
+
+        // Get the first available RPC endpoint for the specified network
+        const rpcUrl = await getAvailableRpcEndpoint(dNetwork);
+        // const connection = new Connection(rpcUrl, 'confirmed');
+
         // Proceed to create the post on the blockchain
-        const {signature, program_account} = await createPost(userKeypair, metadata, dNetwork);
+        const {signature, program_account} = await createPost(userKeypair, metadata, rpcUrl);
         res.json({ status: "True", message: "Post created successfully", edit_key: program_account, signature });
         
     } catch (err) {

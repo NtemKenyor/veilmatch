@@ -102,14 +102,15 @@ const postMetadataSchema = new Map([
     ]}],
 ]);
 
-async function fetchMetadataForAccounts(network="production") {
+async function fetchMetadataForAccounts(network="mainnet") {
     const accountMetadata = [];
 
-    const connection = (network === "localhost" || network === "developmet") 
-        ? new Connection("http://127.0.0.1:8899", "confirmed")
-        : new Connection("https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317 ", "confirmed");
+    // const connection = (network === "localhost" || network === "developmet") 
+    //     ? new Connection("http://127.0.0.1:8899", "confirmed")
+    //     : new Connection("https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317 ", "confirmed");
 
     // const connection = new Connection("https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317 ", "confirmed");
+    const connection = new Connection(rpcUrl, 'confirmed');
 
     try {
         const programAccounts = await connection.getProgramAccounts(programId, {

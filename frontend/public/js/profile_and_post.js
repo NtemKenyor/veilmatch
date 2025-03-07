@@ -642,30 +642,140 @@ document.getElementById('insertVideo').addEventListener('click', () => {
 
  */
 
+
+function getAllUrlParams(url) {
+    // Create an object to store the parameters
+    let params = {};
+
+    // Get the query string part of the URL
+    let queryString = url.split('?')[1];
+
+    if (queryString) {
+        // Split the query string into individual key-value pairs
+        let pairs = queryString.split('&');
+
+        // Loop through each pair and populate the params object
+        pairs.forEach(pair => {
+            let [key, value] = pair.split('=');
+            params[key] = decodeURIComponent(value || '');
+        });
+    }
+
+    return params;
+}
+
+function getUrlParam(url, paramName) {
+    // Get all parameters using the previous function
+    let params = getAllUrlParams(url);
+
+    // Return the value of the specified parameter
+    return params[paramName] || null;
+}
+
+// List of Solana Mainnet RPC endpoints (primary + backups)
+var MAINNET_RPC_ENDPOINTS = [
+    'https://api.mainnet-beta.solana.com', // Primary
+    'https://solana-api.projectserum.com', // Backup 1
+    'https://ssc-dao.genesysgo.net', // Backup 2
+    'https://solana-mainnet.chainstacklabs.com', // Backup 3
+];
+
+// Function to check if an RPC endpoint is reachable
+async function isRpcEndpointReachable(url) {
+    try {
+        const connection = new solanaWeb3.Connection(url, 'confirmed');
+        // Fetch the latest block height to test the connection
+        await connection.getBlockHeight();
+        return true; // Endpoint is reachable
+    } catch (error) {
+        console.warn(`RPC endpoint ${url} is unreachable:`, error);
+        return false; // Endpoint is unreachable
+    }
+}
+
+// Function to get the first available RPC endpoint
+async function getAvailableRpcEndpoint(endpoints) {
+    for (const url of endpoints) {
+        if (await isRpcEndpointReachable(url)) {
+            return url; // Return the first reachable endpoint
+        }
+    }
+    throw new Error('No reachable RPC endpoints found.');
+}
+
+// Updated network setup function
+async function setupNetwork(network) {
+    if (network === "main" || network === "mainnet") {
+        window.NODE_URL = "https://roynek.com/veilmatch/backend";
+        window.PHP_URL = "https://roynek.com/cloudS/interact/server";
+        // Use the first available Mainnet RPC endpoint
+        const rpcUrl = await getAvailableRpcEndpoint(MAINNET_RPC_ENDPOINTS);
+        window.connection = new solanaWeb3.Connection(rpcUrl, 'confirmed');
+        console.log(`Connected to Mainnet RPC: ${rpcUrl}`);
+    } else if (network === "dev" || network === "devnet") {
+        window.NODE_URL = "https://roynek.com/veilmatch/backend";
+        window.PHP_URL = "https://roynek.com/cloudS/interact/server";
+        window.connection = new solanaWeb3.Connection('https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317', 'confirmed');
+    } else if (network === "local" || network === "localnet") {
+        window.NODE_URL = "http://localhost:3000/veilmatch/backend";
+        window.PHP_URL = "http://localhost/cloudS/interact/server";
+        window.connection = new solanaWeb3.Connection('http://127.0.0.1:8899', 'confirmed');
+    } else {
+        throw new Error('Invalid network specified');
+    }
+}
+
+var url = window.location.href;
+// Get all parameters
+// let allParams = getAllUrlParams(url);
+// console.log(allParams); // { network: 'mainnet', token: 'abc123' }
+// Get a specific parameter
+var network = getUrlParam(url, 'network');
+// console.log(network); // 'mainnet'
+
 // window.NODE_URL = "http://localhost:3000/veilmatch/backend";
 // window.NODE_URL = "https://roynek.com/veilmatch/backend";
 // window.PHP_URL = "http://localhost";
 // window.PHP_URL = "https://roynek.com/cloudS/interact/server";
 
 // Initialize global variables using the window object
-if (
-    window.location.hostname === "localhost" || 
-    window.location.hostname.startsWith("127.") || 
-    window.location.hostname === "0.0.0.0"
-) {
-    // Use localhost URLs
-    window.NODE_URL = "http://localhost:3000/veilmatch/backend";
-    window.PHP_URL = "http://localhost/cloudS/interact/server";
-    window.connection = new solanaWeb3.Connection('http://127.0.0.1:8899', 'confirmed');
-    // window.connection = 'http://127.0.0.1:8899';
-} else {
-    // Use live URLs
-    window.NODE_URL = "https://roynek.com/veilmatch/backend";
-    // window.NODE_URL = "http://localhost:3000/program-NtemKenyor/backend"; // jUST NODE LOCALHOST TO TEST HERE..
-    window.PHP_URL = "https://roynek.com/cloudS/interact/server";
-    window.connection = new solanaWeb3.Connection('https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317', 'confirmed');
-    // window.connection = 'https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317', 'confirmed');
+if(network != null){
+    (async () => {
+        try {
+            await setupNetwork('mainnet'); // or 'devnet', 'localnet'
+            console.log('Network setup complete:', window.connection);
+        } catch (error) {
+            console.error('Error setting up network:', error);
+        }
+    })();
+
+    // alert("network provided: "+ network);
+}else{
+    // alert("no network provided");
+    if (
+        window.location.hostname === "localhost" || 
+        window.location.hostname.startsWith("127.") || 
+        window.location.hostname === "0.0.0.0"
+    ) {
+        // Use localhost URLs
+        window.NODE_URL = "http://localhost:3000/veilmatch/backend";
+        window.PHP_URL = "http://localhost/cloudS/interact/server";
+        window.connection = new solanaWeb3.Connection('http://127.0.0.1:8899', 'confirmed');
+        // window.connection = 'http://127.0.0.1:8899';
+    } else {
+        // Use live URLs - mainnet by default...
+        network = "mainnet"; // devnet
+        (async () => {
+            try {
+                await setupNetwork(network); // or 'devnet', 'localnet'
+                console.log('Network setup complete:', window.connection);
+            } catch (error) {
+                console.error('Error setting up network:', error);
+            }
+        })();
+    }
 }
+
 
 // Log the current URLs being used for easy tracking
 console.log("Current NODE_URL:", window.NODE_URL);
@@ -917,6 +1027,7 @@ async function make_some_post({
             image_url: image_url,
             author: author,
             date: new Date().toISOString(),
+            network_pref: network, // the network preference or network used on the frontend...
             others: typeof others != "string" ? JSON.stringify(others) : others, // Ensure "others" is a JSON structure
             // encryption_type: encryption_type // Include encryption_type in the payload
         };
