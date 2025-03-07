@@ -381,7 +381,7 @@ console.log("Current Blockchain Network:", window.connection);
 }
 */
 
-default_post = [
+const default_post = [
     {
         "pubkey": "5vDfnGGr6VzDCM2hAtCx3h1G113FC5SFm5hMs88Nf7yR",
         "metadata": {
@@ -527,7 +527,7 @@ default_post = [
     }
 ]
 
-// Default posts to use if the server fetch fails or to append to the fetched data
+/* // Default posts to use if the server fetch fails or to append to the fetched data
 const default_post = [
     {
         "pubkey": "5vDfnGGr6VzDCM2hAtCx3h1G113FC5SFm5hMs88Nf7yR",
@@ -541,7 +541,7 @@ const default_post = [
         }
     },
     // Add more default posts here...
-];
+]; */
 
 // Function to randomly shuffle an array
 function shuffleArray(array) {
@@ -563,11 +563,15 @@ async function loadPosts() {
         // Randomly shuffle the default posts
         const shuffledDefaultPosts = shuffleArray([...default_post]);
 
-        // Combine fetched data with shuffled default posts
-        const combinedData = [...data, ...shuffledDefaultPosts];
-
         // Sort the combined data by date
-        const sortedData = sortPostsByDate(combinedData);
+        const sortedData = sortPostsByDate(data);
+
+        // Combine fetched data with shuffled default posts
+        // const combinedData = [...data, ...shuffledDefaultPosts];
+        sortedData = [...sortedData, ...shuffledDefaultPosts];
+
+        // // Sort the combined data by date
+        // const sortedData = sortPostsByDate(combinedData);
 
         // Render the posts
         const postsContainer = document.getElementById("d_post_arena");
