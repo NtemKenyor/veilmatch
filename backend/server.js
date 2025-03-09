@@ -133,7 +133,7 @@ app.get(MAIN_DIR+'/', (req, res) => {
 
 app.get(MAIN_DIR+"/api/metadata", async (req, res) => {
     const network_pref = req.query.network; // Extract the network parameter
-    console.log("Received network:", network);
+    console.log("Received network:", network_pref);
 
     // set the preferred network from users-end
     if(network_pref != null){
