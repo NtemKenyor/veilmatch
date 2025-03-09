@@ -172,6 +172,7 @@ function getUrlParam(url, paramName) {
 
 // List of Solana Mainnet RPC endpoints (primary + backups)
 var MAINNET_RPC_ENDPOINTS = [
+    'https://dry-ancient-lambo.solana-mainnet.quiknode.pro/ed2362f2fb7c1337b00e81d6863eb929d0db2b2e/',
     'https://api.mainnet-beta.solana.com', // Primary
     'https://solana-api.projectserum.com', // Backup 1
     'https://ssc-dao.genesysgo.net', // Backup 2
@@ -956,7 +957,7 @@ async function getBalance() {
         return;
     }
     // const balance = await window.connection.getBalance(keypair.publicKey);
-    const balance = await getBalance(keypair.publicKey);
+    const balance = await window.connection.getBalance(keypair.publicKey);
 
     // document.getElementById('balance').textContent = 'Balance: ' + (balance / solanaWeb3.LAMPORTS_PER_SOL).toFixed(2) + ' SOL';
     document.getElementById('balance').textContent = 'Balance: ' + (Math.floor((balance / solanaWeb3.LAMPORTS_PER_SOL) * 100) / 100) + ' SOL';
@@ -1174,7 +1175,7 @@ document.getElementById('transfer')?.addEventListener('click', () => userRedirec
 document.getElementById('home')?.addEventListener('click', () => userRedirect("index.html"));
 document.getElementById('message_item')?.addEventListener('click', () => userRedirect("messenger.html"));
 document.getElementById('games')?.addEventListener('click', () => userRedirect("games.html"));
-document.getElementById('about_us')?.addEventListener('click', () => alert("This Project is inspired by the quicknode Hackathon. More updates coming quicknode. ") );
+document.getElementById('about_us')?.addEventListener('click', () => userRedirect("white-paper.html") );
 
 
 // const profileElement = document.getElementById('profile');

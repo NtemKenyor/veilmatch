@@ -77,7 +77,7 @@ const { deserialize } = require("borsh");
 require('dotenv').config();
 
 // // 7sGT7oBKSetii8mspduzWR8EeYq86z51v9BdwfkEW2Wr
-const programId = new PublicKey("7sGT7oBKSetii8mspduzWR8EeYq86z51v9BdwfkEW2Wr");
+const programId = new PublicKey("A6GEfSbfhFa1H41sUVfeyZM9riLi3SdGaEjGjHaxFQvs");
 
 
 class PostMetadata {

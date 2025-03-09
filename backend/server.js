@@ -63,17 +63,19 @@ async function decryptPrivateKey(privateKeyPem, encryptedPrivateKeyJson) {
 // Define RPC endpoints for each network
 const NETWORK_RPC_ENDPOINTS = {
     mainnet: [
+        'https://dry-ancient-lambo.solana-mainnet.quiknode.pro/ed2362f2fb7c1337b00e81d6863eb929d0db2b2e/',
         'https://api.mainnet-beta.solana.com', // Primary
         'https://solana-api.projectserum.com', // Backup 1
         'https://ssc-dao.genesysgo.net', // Backup 2
     ],
     main: [
+        'https://dry-ancient-lambo.solana-mainnet.quiknode.pro/ed2362f2fb7c1337b00e81d6863eb929d0db2b2e/',
         'https://api.mainnet-beta.solana.com', // Primary
         'https://solana-api.projectserum.com', // Backup 1
         'https://ssc-dao.genesysgo.net', // Backup 2
     ],
     devnet: [
-        'https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317', // Backup 1
+        // 'https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317', // Backup 1
         'https://api.devnet.solana.com', // Primary
     ],
     localnet: [

@@ -1,0 +1,10 @@
+Sonic_mainnet:
+A6GEfSbfhFa1H41sUVfeyZM9riLi3SdGaEjGjHaxFQvs
+
+
+Solana Devnet:
+7sGT7oBKSetii8mspduzWR8EeYq86z51v9BdwfkEW2Wr
+
+
+Localnet:
+7sGT7oBKSetii8mspduzWR8EeYq86z51v9BdwfkEW2Wr

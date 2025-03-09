@@ -5,7 +5,7 @@ const { serialize } = require("borsh");
 // Program ID and connection setup//
 // const programId = new PublicKey("7sGT7oBKSetii8mspduzWR8EeYq86z51v9BdwfkEW2Wr");
 // const programId = new PublicKey("CYuj8Uxj9dVzEN5Gi6SVzfbEHjcfwuDLCtYpvZ7tYnqz");
-const programId = new PublicKey("7sGT7oBKSetii8mspduzWR8EeYq86z51v9BdwfkEW2Wr");
+const programId = new PublicKey("A6GEfSbfhFa1H41sUVfeyZM9riLi3SdGaEjGjHaxFQvs");
 // const programId = new PublicKey("J2CNybqbZfJTaeBxvXtTWGUW3KQQy7BACajWqPHfMCf4");
 
 

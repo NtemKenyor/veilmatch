@@ -674,6 +674,7 @@ function getUrlParam(url, paramName) {
 
 // List of Solana Mainnet RPC endpoints (primary + backups)
 var MAINNET_RPC_ENDPOINTS = [
+    'https://dry-ancient-lambo.solana-mainnet.quiknode.pro/ed2362f2fb7c1337b00e81d6863eb929d0db2b2e/',
     'https://api.mainnet-beta.solana.com', // Primary
     'https://solana-api.projectserum.com', // Backup 1
     'https://ssc-dao.genesysgo.net', // Backup 2

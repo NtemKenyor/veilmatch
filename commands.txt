@@ -1,0 +1,7 @@
+solana config set --keypair /home/kenyor/.config/solana/sonic.json
+solana config set --url https://rpc.mainnet-alpha.sonic.game
+
+Solana Mainnet 
+solana config set --url https://api.mainnet-beta.solana.com
+solana program deploy /path/to/your/dating_dapp.so
+solana program deploy /target/deploy/dating_dapp.so
