@@ -8,6 +8,40 @@
     <link rel="icon" type="image/webp" href="src/veilmatch.webp">
 
     <style>
+
+        /* Reset some styles for better cross-browser compatibility */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, rgba(0, 0, 255, 0.8), rgba(255, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+            height: 100vh;
+            color: white;
+            overflow-x: hidden;
+            position: relative;
+            background-size: 400% 400%;
+            font-size: 1.16rem;
+            animation: gradientAnimation 15s ease infinite;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Keyframe animation for smooth gradient transition */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+
         /* Additional styles specific to the white-paper page */
         .whitepaper-container {
             max-width: 800px;
@@ -40,6 +74,8 @@
         }
         .back-button:hover {
             /* background: #ff6666; */
+            background-color: rgba(0, 0, 255, 0.8);
+            color: white;
         }
     </style>
 </head>
@@ -57,13 +93,16 @@
                 <h1>VeilMatch: Revolutionizing Love with Security, Anonymity, and Web3 Technology</h1>
                 <p><strong>Version 1.0</strong> | <strong>Date:</strong> Dec, 2024</p>
 
+                <br/>
                 <h2>Executive Summary</h2>
                 <p>VeilMatch is an innovative, secure, and anonymous dating platform leveraging Web3 technology to revolutionize how people connect and find love. It prioritizes user privacy, safety, and anonymity while fostering meaningful relationships through blockchain, encryption, and AI-powered matchmaking.</p>
 
+                <br/>
                 <h2>Vision and Mission</h2>
                 <p><strong>Vision:</strong> Create a global platform for meaningful connections built on trust, compatibility, and respect, with a focus on privacy and security.</p>
                 <p><strong>Mission:</strong> Redefine online dating by integrating Web3 technology, ensuring secure and anonymous interactions, and empowering users with control over their data.</p>
 
+                <br/>
                 <h2>Key Features</h2>
                 <ul>
                     <li>Anonymous Profiles</li>
@@ -75,20 +114,23 @@
                     <li>User Control</li>
                 </ul>
 
+                <br/>
                 <h2>Technology Stack</h2>
                 <p>Frontend: HTML, CSS, JavaScript, React/Vue.js</p>
                 <p>Backend: Node.js or Python</p>
-                <p>Blockchain: Solana, Ton, Xion, Polygon</p>
+                <p>Blockchain: Sonic SVM, Solana, Ton, Xion, Polygon</p>
                 <p>Database: MongoDB, IPFS, Arweave</p>
                 <p>AI/ML: TensorFlow, Scikit-learn</p>
                 <p>Security: bcrypt, Argon2, SSL/TLS</p>
 
+                <br/>
                 <h2>Token Integration</h2>
                 <p><strong>Token Name:</strong> VeilMatch Token (VMT)</p>
                 <p><strong>Blockchain:</strong> Solana, Ton, Xion, Polygon</p>
                 <p><strong>Total Supply:</strong> 1,000,000 VMT</p>
                 <p><strong>Utility:</strong> Access premium features, staking, governance, and engagement incentives.</p>
 
+                <br/>
                 <h2>Roadmap</h2>
                 <ul>
                     <li><strong>Phase 1 (Q1 2025):</strong> Ideation, team formation, and platform design.</li>
@@ -98,6 +140,7 @@
                     <li><strong>Phase 5 (2026+):</strong> Expand features, integrate VR/AR, and foster global partnerships.</li>
                 </ul>
 
+                <br/>
                 <h2>Legal Disclaimer</h2>
                 <p>This whitepaper is for informational purposes only and does not constitute investment advice. VeilMatch does not guarantee any return on investment.</p>
 
