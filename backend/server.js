@@ -59,7 +59,7 @@ async function decryptPrivateKey(privateKeyPem, encryptedPrivateKeyJson) {
     return decryptedPrivateKey;
 }
 
-
+/* 
 // Define RPC endpoints for each network
 const NETWORK_RPC_ENDPOINTS = {
     mainnet: [
@@ -82,6 +82,31 @@ const NETWORK_RPC_ENDPOINTS = {
         'http://127.0.0.1:8899', // Primary (local node)
     ],
 };
+ */
+
+// Define RPC endpoints for each network
+const NETWORK_RPC_ENDPOINTS = {
+    mainnet: [
+        'https://rpc.mainnet-alpha.sonic.game',
+        'https://api.mainnet-alpha.sonic.game', // Primary
+        'https://sonic.helius-rpc.com/', // Backup 1
+        // 'https://ssc-dao.genesysgo.net', // Backup 2
+    ],
+    main: [
+        'https://rpc.mainnet-alpha.sonic.game',
+        'https://api.mainnet-alpha.sonic.game', // Primary
+        'https://sonic.helius-rpc.com/', // Backup 1
+        // 'https://ssc-dao.genesysgo.net', // Backup 2
+    ],
+    devnet: [
+        // 'https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317', // Backup 1
+        'https://api.devnet.solana.com', // Primary
+    ],
+    localnet: [
+        'http://127.0.0.1:8899', // Primary (local node)
+    ],
+};
+
 
 // Function to get the first available RPC endpoint for a given network
 async function getAvailableRpcEndpoint(network) {
