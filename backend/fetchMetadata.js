@@ -102,7 +102,7 @@ const postMetadataSchema = new Map([
     ]}],
 ]);
 
-async function fetchMetadataForAccounts(network="mainnet") {
+async function fetchMetadataForAccounts(rpcUrl) {
     const accountMetadata = [];
 
     // const connection = (network === "localhost" || network === "developmet") 
