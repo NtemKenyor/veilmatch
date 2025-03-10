@@ -1196,17 +1196,17 @@ document.getElementById('about_us')?.addEventListener('click', () => userRedirec
 // document.getElementById('transfer').addEventListener('click', userRedirect("send.html"));
 
 
+var url = window.location.href;
+// Get all parameters
+// let allParams = getAllUrlParams(url); - not sued yet. can be used when the params are many and we need them all at once...
+// console.log(allParams); // { network: 'mainnet', token: 'abc123' }
+
+// Get a specific parameter
+var network = getUrlParam(url, 'network');
+
+
 
 document.addEventListener("DOMContentLoaded", async () => {
-    var url = window.location.href;
-    // Get all parameters
-    // let allParams = getAllUrlParams(url); - not sued yet. can be used when the params are many and we need them all at once...
-    // console.log(allParams); // { network: 'mainnet', token: 'abc123' }
-
-    // Get a specific parameter
-    var network = getUrlParam(url, 'network');
-
-
     await setupNetwork(network);  // Ensure connection is established before loading the wallet
     loadStoredWallet();
     loadPosts();
