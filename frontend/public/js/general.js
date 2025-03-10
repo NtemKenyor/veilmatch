@@ -213,13 +213,13 @@ async function getAvailableRpcEndpoint(endpoints) {
 }
 
 // Updated network setup function
-async function setupNetwork(network) {
+async function setupNetworkbyUrl(network) {
     if (network === "main" || network === "mainnet") {
         window.NODE_URL = "https://roynek.com/veilmatch/backend";
         window.PHP_URL = "https://roynek.com/cloudS/interact/server";
         // Use the first available Mainnet RPC endpoint
         const rpcUrl = await getAvailableRpcEndpoint(MAINNET_RPC_ENDPOINTS);
-        window.connection = new solanaWeb3.Connection(rpcUrl, 'confirmed');
+        window.connection = await new solanaWeb3.Connection(rpcUrl, 'confirmed');
         console.log(`Connected to Mainnet RPC: ${rpcUrl}`);
     } else if (network === "dev" || network === "devnet") {
         window.NODE_URL = "https://roynek.com/veilmatch/backend";
@@ -234,50 +234,12 @@ async function setupNetwork(network) {
     }
 }
 
-var url = window.location.href;
-// Get all parameters
-// let allParams = getAllUrlParams(url); - not sued yet. can be used when the params are many and we need them all at once...
-// console.log(allParams); // { network: 'mainnet', token: 'abc123' }
 
-// Get a specific parameter
-var network = getUrlParam(url, 'network');
 // console.log(network); // 'mainnet'
 
-// window.NODE_URL = "http://localhost:3000/veilmatch/backend";
-// window.NODE_URL = "https://roynek.com/veilmatch/backend";
-// window.PHP_URL = "http://localhost";
-// window.PHP_URL = "https://roynek.com/cloudS/interact/server";
-
-// Initialize global variables using the window object
-if(network != null){
-    (async () => {
-        try {
-            await setupNetwork(network); // or 'devnet', 'localnet'
-            console.log('Network setup complete:', window.connection);
-        } catch (error) {
-            console.error('Error setting up network:', error);
-        }
-    })();
-
-    // alert("network provided: "+ network);
-}else{
-    // alert("no network provided");
-    if (
-        window.location.hostname === "localhost" || 
-        window.location.hostname.startsWith("127.") || 
-        window.location.hostname === "0.0.0.0"
-    ) {
-        // Use localhost URLs
-        window.NODE_URL = "http://localhost:3000/veilmatch/backend";
-        window.PHP_URL = "http://localhost/cloudS/interact/server";
-        window.connection = new solanaWeb3.Connection('http://127.0.0.1:8899', 'confirmed');
-        // window.connection = 'http://127.0.0.1:8899';
-    } else {
-        // Use live URLs - mainnet by default...
-        // window.NODE_URL = "https://roynek.com/veilmatch/backend";
-        // window.PHP_URL = "https://roynek.com/cloudS/interact/server";
-        // window.connection = new solanaWeb3.Connection('https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317', 'confirmed');
-        network = "mainnet"; // devnet
+async function setupNetwork(network){
+    // Initialize global variables using the window object
+    if(network != null){
         (async () => {
             try {
                 await setupNetwork(network); // or 'devnet', 'localnet'
@@ -286,8 +248,44 @@ if(network != null){
                 console.error('Error setting up network:', error);
             }
         })();
+
+        // alert("network provided: "+ network);
+    }else{
+        // alert("no network provided");
+        if (
+            window.location.hostname === "localhost" || 
+            window.location.hostname.startsWith("127.") || 
+            window.location.hostname === "0.0.0.0"
+        ) {
+            // Use localhost URLs
+            window.NODE_URL = "http://localhost:3000/veilmatch/backend";
+            window.PHP_URL = "http://localhost/cloudS/interact/server";
+            window.connection = new solanaWeb3.Connection('http://127.0.0.1:8899', 'confirmed');
+            // window.connection = 'http://127.0.0.1:8899';
+        } else {
+            // Use live URLs - mainnet by default...
+            // window.NODE_URL = "https://roynek.com/veilmatch/backend";
+            // window.PHP_URL = "https://roynek.com/cloudS/interact/server";
+            // window.connection = new solanaWeb3.Connection('https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317', 'confirmed');
+            network = "mainnet"; // devnet
+            (async () => {
+                try {
+                    await setupNetwork(network); // or 'devnet', 'localnet'
+                    console.log('Network setup complete:', window.connection);
+                } catch (error) {
+                    console.error('Error setting up network:', error);
+                }
+            })();
+        }
     }
+
+
+    // Log the current URLs being used for easy tracking
+    console.log("Current NODE_URL:", window.NODE_URL);
+    console.log("Current PHP_URL:", window.PHP_URL);
+    console.log("Current Blockchain Network:", window.connection);
 }
+
 
 // Initialize global variables using the window object
 /* if (
@@ -306,13 +304,6 @@ if(network != null){
     window.PHP_URL = "https://roynek.com/cloudS/interact/server";
     window.connection = new solanaWeb3.Connection('https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317 ', 'confirmed');
 } */
-
-
-
-// Log the current URLs being used for easy tracking
-console.log("Current NODE_URL:", window.NODE_URL);
-console.log("Current PHP_URL:", window.PHP_URL);
-console.log("Current Blockchain Network:", window.connection);
 
 
 /* async function loadPosts() {
@@ -968,6 +959,7 @@ async function getBalance() {
     }
     // const balance = await window.connection.getBalance(keypair.publicKey);
     const balance = await window.connection.getBalance(keypair.publicKey);
+    console.log("The Wallet balance: " + balance);
 
     // document.getElementById('balance').textContent = 'Balance: ' + (balance / solanaWeb3.LAMPORTS_PER_SOL).toFixed(2) + ' SOL';
     document.getElementById('balance').textContent = 'Balance: ' + (Math.floor((balance / solanaWeb3.LAMPORTS_PER_SOL) * 100) / 100) + ' SOL';
@@ -1204,10 +1196,26 @@ document.getElementById('about_us')?.addEventListener('click', () => userRedirec
 // document.getElementById('transfer').addEventListener('click', userRedirect("send.html"));
 
 
-document.addEventListener("DOMContentLoaded", () => {
+
+document.addEventListener("DOMContentLoaded", async () => {
+    var url = window.location.href;
+    // Get all parameters
+    // let allParams = getAllUrlParams(url); - not sued yet. can be used when the params are many and we need them all at once...
+    // console.log(allParams); // { network: 'mainnet', token: 'abc123' }
+
+    // Get a specific parameter
+    var network = getUrlParam(url, 'network');
+
+
+    await setupNetwork(network);  // Ensure connection is established before loading the wallet
+    loadStoredWallet();
+    loadPosts();
+});
+
+/* document.addEventListener("DOMContentLoaded", () => {
     loadStoredWallet();
 
     loadPosts();
 
 });
-
+ */

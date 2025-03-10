@@ -13,7 +13,7 @@ const PORT = 3000;
 // Load server's private key from environment variable
 const serverPrivateKeyPem = process.env.SERVER_PRIVATE_KEY;
 const serverPublicKeyPem = process.env.SERVER_PUBLIC_KEY;
-const dNetwork = process.env.NODE_ENV;
+let dNetwork = process.env.NODE_ENV;
 
 let MAIN_DIR = "/veilmatch/backend";
 
