@@ -735,6 +735,7 @@ async function setupNetwork(network) {
     }
 }
 
+/* 
 var url = window.location.href;
 // Get all parameters
 // let allParams = getAllUrlParams(url);
@@ -742,11 +743,6 @@ var url = window.location.href;
 // Get a specific parameter
 var network = getUrlParam(url, 'network');
 // console.log(network); // 'mainnet'
-
-// window.NODE_URL = "http://localhost:3000/veilmatch/backend";
-// window.NODE_URL = "https://roynek.com/veilmatch/backend";
-// window.PHP_URL = "http://localhost";
-// window.PHP_URL = "https://roynek.com/cloudS/interact/server";
 
 // Initialize global variables using the window object
 if(network != null){
@@ -785,11 +781,16 @@ if(network != null){
         })();
     }
 }
-
-
 // Log the current URLs being used for easy tracking
 console.log("Current NODE_URL:", window.NODE_URL);
 console.log("Current PHP_URL:", window.PHP_URL);
+ */
+
+
+
+
+
+
 
 /* async function make_some_post(){
 
