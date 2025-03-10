@@ -2,7 +2,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const { Keypair } = require("@solana/web3.js");
+const { Connection, PublicKey, Keypair } = require("@solana/web3.js");
 const { fetchMetadataForAccounts } = require("./fetchMetadata");
 const { createPost } = require("./createPost");
 const forge = require("node-forge");
