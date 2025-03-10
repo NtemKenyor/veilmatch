@@ -237,12 +237,12 @@ async function setupNetworkbyUrl(network) {
 
 // console.log(network); // 'mainnet'
 
-async function setupNetwork(network){
+async function setupNetwork(network="mainnet"){
     // Initialize global variables using the window object
     if(network != null){
         (async () => {
             try {
-                await setupNetwork(network); // or 'devnet', 'localnet'
+                await setupNetworkbyUrl(network); // or 'devnet', 'localnet'
                 console.log('Network setup complete:', window.connection);
             } catch (error) {
                 console.error('Error setting up network:', error);
