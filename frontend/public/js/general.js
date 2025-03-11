@@ -876,9 +876,9 @@ async function createWallet() {
 }
 
 // Display public key and balance
-function displayWalletInfo() {
+async function displayWalletInfo() {
     // document.getElementById('publicKey').textContent = keypair.publicKey.toBase58();
-    getBalance();
+    await getBalance();
 }
 
 // Retrieve private key from localStorage
@@ -893,14 +893,14 @@ function displayWalletInfo() {
     }
 } */
 
-function loadStoredWallet() {
+async function loadStoredWallet() {
     const privateKey = localStorage.getItem('solana_private_key');
     const accountIcon = document.getElementById('accountIcon');
     const postBtn = document.getElementById("createPostBtn");
 
     if (privateKey) {
         keypair = solanaWeb3.Keypair.fromSecretKey(Uint8Array.from(JSON.parse(privateKey)));
-        displayWalletInfo();
+        await displayWalletInfo();
         accountIcon.style.display = 'block';  // Show the icon if the wallet is loaded
         postBtn.style.display = 'block';
     } else {
@@ -1212,7 +1212,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         network = "mainnet";
     }
     await setupNetwork(network);  // Ensure connection is established before loading the wallet
-    loadStoredWallet();
+    await loadStoredWallet();
     loadPosts();
 });
 
