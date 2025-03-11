@@ -643,6 +643,8 @@ document.getElementById('insertVideo').addEventListener('click', () => {
  */
 
 
+/* 
+
 function getAllUrlParams(url) {
     // Create an object to store the parameters
     let params = {};
@@ -673,13 +675,13 @@ function getUrlParam(url, paramName) {
 }
 
 // List of Solana Mainnet RPC endpoints (primary + backups)
-/* var MAINNET_RPC_ENDPOINTS = [
-    'https://dry-ancient-lambo.solana-mainnet.quiknode.pro/ed2362f2fb7c1337b00e81d6863eb929d0db2b2e/',
-    'https://api.mainnet-beta.solana.com', // Primary
-    'https://solana-api.projectserum.com', // Backup 1
-    'https://ssc-dao.genesysgo.net', // Backup 2
-    'https://solana-mainnet.chainstacklabs.com', // Backup 3
-]; */
+// var MAINNET_RPC_ENDPOINTS = [
+//     'https://dry-ancient-lambo.solana-mainnet.quiknode.pro/ed2362f2fb7c1337b00e81d6863eb929d0db2b2e/',
+//     'https://api.mainnet-beta.solana.com', // Primary
+//     'https://solana-api.projectserum.com', // Backup 1
+//     'https://ssc-dao.genesysgo.net', // Backup 2
+//     'https://solana-mainnet.chainstacklabs.com', // Backup 3
+// ];
 
 var MAINNET_RPC_ENDPOINTS = [
     'https://rpc.mainnet-alpha.sonic.game',
@@ -713,6 +715,8 @@ async function getAvailableRpcEndpoint(endpoints) {
     throw new Error('No reachable RPC endpoints found.');
 }
 
+
+
 // Updated network setup function
 async function setupNetwork(network) {
     if (network === "main" || network === "mainnet") {
@@ -735,7 +739,8 @@ async function setupNetwork(network) {
     }
 }
 
-/* 
+
+
 var url = window.location.href;
 // Get all parameters
 // let allParams = getAllUrlParams(url);
