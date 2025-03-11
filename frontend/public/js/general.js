@@ -1207,6 +1207,10 @@ var network = getUrlParam(url, 'network');
 
 
 document.addEventListener("DOMContentLoaded", async () => {
+    if(network == "" || network == null){
+        console.log("Setting netork to Sonic MAIN Net");
+        network = "mainnet";
+    }
     await setupNetwork(network);  // Ensure connection is established before loading the wallet
     loadStoredWallet();
     loadPosts();
