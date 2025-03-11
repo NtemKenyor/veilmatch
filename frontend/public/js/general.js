@@ -270,7 +270,7 @@ async function setupNetwork(network="mainnet"){
             network = "mainnet"; // devnet
             (async () => {
                 try {
-                    await setupNetwork(network); // or 'devnet', 'localnet'
+                    await setupNetworkbyUrl(network); // or 'devnet', 'localnet'
                     console.log('Network setup complete:', window.connection);
                 } catch (error) {
                     console.error('Error setting up network:', error);
@@ -1208,8 +1208,9 @@ var network = getUrlParam(url, 'network');
 
 document.addEventListener("DOMContentLoaded", async () => {
     if(network == "" || network == null){
-        console.log("Setting netork to Sonic MAIN Net");
+        
         network = "mainnet";
+        console.log("Setting netork to Sonic: "+ network);
     }
     await setupNetwork(network);  // Ensure connection is established before loading the wallet
     await loadStoredWallet();
