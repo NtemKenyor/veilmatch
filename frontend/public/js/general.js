@@ -235,9 +235,37 @@ async function setupNetworkbyUrl(network) {
 }
 
 
+async function BuildNetwork(network) {
+    if (network === "main" || network === "mainnet") {
+        window.NODE_URL = "https://roynek.com/veilmatch/backend";
+        window.PHP_URL = "https://roynek.com/cloudS/interact/server";
+        // Use the first available Mainnet RPC endpoint
+        // const rpcUrl = await getAvailableRpcEndpoint(MAINNET_RPC_ENDPOINTS[0]);
+        console.log(`Connected to Mainnet RPC: ${MAINNET_RPC_ENDPOINTS[0]}`);
+
+        return await new solanaWeb3.Connection(MAINNET_RPC_ENDPOINTS[0], 'confirmed');
+    } else if (network === "dev" || network === "devnet") {
+        window.NODE_URL = "https://roynek.com/veilmatch/backend";
+        window.PHP_URL = "https://roynek.com/cloudS/interact/server";
+       return new solanaWeb3.Connection('https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317', 'confirmed');
+    } else if (network === "local" || network === "localnet") {
+        window.NODE_URL = "http://localhost:3000/veilmatch/backend";
+        window.PHP_URL = "http://localhost/cloudS/interact/server";
+        return new solanaWeb3.Connection('http://127.0.0.1:8899', 'confirmed');
+    } else {
+        throw new Error('Invalid network specified');
+    }
+}
+
+
 // console.log(network); // 'mainnet'
 
 async function setupNetwork(network="mainnet"){
+    if (window.connection) {
+        console.log("Connection already established. Skipping setup.");
+        return; // Exit early if connection is already set
+    }
+
     // Initialize global variables using the window object
     if(network != null){
         (async () => {
@@ -1212,7 +1240,22 @@ document.addEventListener("DOMContentLoaded", async () => {
         network = "mainnet";
         console.log("Setting netork to Sonic: "+ network);
     }
-    await setupNetwork(network);  // Ensure connection is established before loading the wallet
+
+    // Strictly ensure setupNetwork is completely finished before proceeding
+    // await new Promise(async (resolve, reject) => {
+    //     try {
+    //         await setupNetwork(network);  // Wait for setupNetwork to finish
+    //         console.log("Network setup complete.");
+    //         resolve();  // Signal that setup is fully done
+    //     } catch (error) {
+    //         console.error("Network setup failed:", error);
+    //         reject(error);  // Stop execution if setupNetwork fails
+    //     }
+    // });
+
+    window.connection = await BuildNetwork(network);
+    // await setupNetwork(network);  // Ensure connection is established before loading the wallet
+    
     await loadStoredWallet();
     loadPosts();
 });
