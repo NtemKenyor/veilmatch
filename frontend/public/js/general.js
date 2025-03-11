@@ -570,7 +570,7 @@ async function loadPosts() {
 
         // Combine fetched data with shuffled default posts
         // const combinedData = [...data, ...shuffledDefaultPosts];
-        sortedData = [...sortedData, ...shuffledDefaultPosts];
+        const FinalsortedData = [...sortedData, ...shuffledDefaultPosts];
 
         // // Sort the combined data by date
         // const sortedData = sortPostsByDate(combinedData);
@@ -579,7 +579,7 @@ async function loadPosts() {
         const postsContainer = document.getElementById("d_post_arena");
         postsContainer.innerHTML = "";
 
-        sortedData.forEach((entry) => {
+        FinalsortedData.forEach((entry) => {
             const post = entry.metadata;
             const postDiv = document.createElement("div");
             postDiv.className = "post";
@@ -645,7 +645,7 @@ async function loadPosts() {
             postsContainer.appendChild(postDiv);
         });
     } catch (error) {
-        console.error("Error loading posts:", error);
+        console.error("Error loading posts - Loading from Defaults alone:", error);
 
         // If fetching fails, use the shuffled default posts
         const shuffledDefaultPosts = shuffleArray([...default_post]);
