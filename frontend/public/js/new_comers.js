@@ -1,73 +1,44 @@
     const uniqueContent = {
-    slides: [
-      {
-        category: "What We Have Built",
-        title: "Creatives Arena",
-        text: "A vibrant hub where creatives can share content and earn exciting rewards. We champion free speech and innovation, empowering creators worldwide.",
-        icon: `
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="10" stroke="var(--primary-red)" stroke-width="2" fill="none" />
-            <line x1="12" y1="6" x2="12" y2="18" stroke="var(--primary-red)" stroke-width="2" />
-            <line x1="6" y1="12" x2="18" y2="12" stroke="var(--primary-red)" stroke-width="2" />
-          </svg>
-        `,
-      },
-      {
-        category: "What We Have Built",
-        title: "Anonymous Messaging",
-        text: "Our anonymous messaging platform allows you to send heartfelt or secret messages without revealing your identity. Say what you truly feel.",
-        icon: `
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-            <rect x="3" y="4" width="18" height="16" rx="4" ry="4" stroke="var(--primary-blue)" stroke-width="2" />
-            <path d="M6 10h12M6 14h8" stroke="var(--primary-blue)" stroke-width="2" />
-          </svg>
-        `,
-      },
-      {
-        category: "What We Have Built",
-        title: "Cool Rewarding Games",
-        text: "Dive into our world of games! Enjoy fun and rewarding challenges, bridging traditional games with the power of Web3. Let the adventure begin!",
-        icon: `
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2l3 7h7l-6 4 3 7-6-4-6 4 3-7-6-4h7z" fill="var(--primary-red)" />
-          </svg>
-        `,
-      },
-      {
-        category: "What We Have Built",
-        title: "Your Funds, Your Power",
-        text: "Experience complete control of your funds. Transfer seamlessly to any wallet or exchange of your choice. Your money, your rules.",
-        icon: `
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-            <path d="M3 11h18v2H3z" fill="var(--primary-blue)" />
-            <circle cx="12" cy="12" r="5" stroke="var(--primary-blue)" stroke-width="2" />
-          </svg>
-        `,
-      },
-      {
-        category: "The Future",
-        title: "Improved Security",
-        text: "We are committed to enhancing platform security. Expect advanced encryption, multi-layered protection, and unmatched reliability for your data.",
-        icon: `
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.1 0 2 .9 2 2H10c0-1.1.9-2 2-2zm0 16c-2.21 0-4-1.79-4-4h8c0 2.21-1.79 4-4 4z" fill="var(--primary-red)" />
-          </svg>
-        `,
-      },
-      {
-        category: "The Future: Bright Horizons",
-        title: "Unmatched Value",
-        text: "We're building an ecosystem packed with creative contests, Web3 challenges, innovative features, and thrilling games. Your satisfaction drives us. Thank you for joining us on this exciting journey!",
-        icon: `
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-            <path d="M2 12l10-8 10 8-10 8z" fill="var(--primary-blue)" />
-            <circle cx="12" cy="12" r="4" fill="var(--primary-red)" />
-          </svg>
-        `,
-      },
-    ],
-  };
-  
+      "slides": [
+        {
+          "category": "What We Have Built",
+          "title": "VeilMatch: The Future of Dating",
+          "text": "A revolutionary dating platform that prioritizes privacy, security, and Web3 integration. Connect with confidence in a decentralized and anonymous ecosystem.",
+          "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'><circle cx='12' cy='12' r='10' stroke='var(--primary-red)' stroke-width='2' fill='none' /><line x1='12' y1='6' x2='12' y2='18' stroke='var(--primary-red)' stroke-width='2' /><line x1='6' y1='12' x2='18' y2='12' stroke='var(--primary-red)' stroke-width='2' /></svg>"
+        },
+        {
+          "category": "What We Have Built",
+          "title": "Anonymous & Secure Dating",
+          "text": "VeilMatch ensures complete anonymity with encrypted chats, pseudonymous profiles, and blockchain-powered security. No more data leaks or privacy breaches.",
+          "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'><rect x='3' y='4' width='18' height='16' rx='4' ry='4' stroke='var(--primary-blue)' stroke-width='2' /><path d='M6 10h12M6 14h8' stroke='var(--primary-blue)' stroke-width='2' /></svg>"
+        },
+        {
+          "category": "What We Have Built",
+          "title": "Web3-Powered Matchmaking",
+          "text": "Smart contracts ensure transparent and bias-free matchmaking. Your love life, secured on the blockchain.",
+          "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'><path d='M12 2l3 7h7l-6 4 3 7-6-4-6 4 3-7-6-4h7z' fill='var(--primary-red)' /></svg>"
+        },
+        {
+          "category": "What We Have Built",
+          "title": "Tokenized Love Economy",
+          "text": "Users earn and spend VeilMatch tokens ($VMT) for premium features, virtual gifts, and exclusive dating events.",
+          "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'><path d='M3 11h18v2H3z' fill='var(--primary-blue)' /><circle cx='12' cy='12' r='5' stroke='var(--primary-blue)' stroke-width='2' /></svg>"
+        },
+        {
+          "category": "The Future",
+          "title": "AI-Driven Compatibility Matching",
+          "text": "Leveraging AI and deep learning, VeilMatch ensures you find the most compatible partners based on behavior, interests, and blockchain-verified profiles.",
+          "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.1 0 2 .9 2 2H10c0-1.1.9-2 2-2zm0 16c-2.21 0-4-1.79-4-4h8c0 2.21-1.79 4-4 4z' fill='var(--primary-red)' /></svg>"
+        },
+        {
+          "category": "The Future: Bright Horizons",
+          "title": "Empowering Love & Connection",
+          "text": "We are building a future where dating is secure, anonymous, and rewarding. Join us in revolutionizing love with blockchain and AI.",
+          "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'><path d='M2 12l10-8 10 8-10 8z' fill='var(--primary-blue)' /><circle cx='12' cy='12' r='4' fill='var(--primary-red)' /></svg>"
+        }
+      ]
+    };
+    
 
    
     function uniqueUpdateSlide() {
