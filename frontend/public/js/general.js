@@ -415,17 +415,6 @@ let default_product_id = "hyge7482hdyeg@7875";
 
 const default_post = [
     {
-        "pubkey": "5vDfnGGr6VzDCM2hAtCx3h1G113FC5SFm5hMs88Nf7yR",
-        "metadata": {
-            "title": "The Ocean Side: Play Now.",
-            "content": "In the deepest part of the Ocean, A man survived with animals that are yet to be known to humans. Here is his story: Play Now:\n\n{{element|type=iframe|src=https://roynek.com/cloudS/interact/public/aquatic_SOON/index.html}}",
-            "image_url": "",
-            "author": "Game Republic",
-            "date": "2024-12-22T20:06:54.116Z",
-            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"BSsCnFimdYBKhrt4gvaCePxiXcooVZvexs39yEzwoMp1\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"product_id\":\"hyge7482hdyeg@7875\",\"others\":\"\"}"
-        }
-    },
-    {
         "pubkey": "7e7hsdUV7zYHFocoDqL6TDBBtt28Z1o9sTj3aThPrQx8",
         "metadata": {
             "title": "",
