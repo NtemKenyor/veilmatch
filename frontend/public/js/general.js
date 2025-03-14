@@ -411,6 +411,8 @@ async function setupNetwork(network="mainnet"){
 }
 */
 
+let default_product_id = "hyge7482hdyeg@7875";
+
 const default_post = [
     {
         "pubkey": "5vDfnGGr6VzDCM2hAtCx3h1G113FC5SFm5hMs88Nf7yR",
@@ -420,7 +422,7 @@ const default_post = [
             "image_url": "",
             "author": "Game Republic",
             "date": "2024-12-22T20:06:54.116Z",
-            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"BSsCnFimdYBKhrt4gvaCePxiXcooVZvexs39yEzwoMp1\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"others\":\"\"}"
+            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"BSsCnFimdYBKhrt4gvaCePxiXcooVZvexs39yEzwoMp1\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"product_id\":\"hyge7482hdyeg@7875\",\"others\":\"\"}"
         }
     },
     {
@@ -431,7 +433,7 @@ const default_post = [
             "image_url": "",
             "author": "BSsCnFimdYBKhrt4gvaCePxiXcooVZvexs39yEzwoMp1",
             "date": "2024-12-22T08:20:28.863Z",
-            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"BSsCnFimdYBKhrt4gvaCePxiXcooVZvexs39yEzwoMp1\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"others\":\"\"}"
+            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"BSsCnFimdYBKhrt4gvaCePxiXcooVZvexs39yEzwoMp1\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"product_id\":\"hyge7482hdyeg@7875\",\"others\":\"\"}"
         }
     },
     {
@@ -442,7 +444,7 @@ const default_post = [
             "image_url": "",
             "author": "Caterine",
             "date": "2024-12-05T08:35:06.671Z",
-            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"others\":\"\"}"
+            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"product_id\":\"hyge7482hdyeg@7875\",\"others\":\"\"}"
         }
     },
     {
@@ -453,7 +455,7 @@ const default_post = [
             "image_url": "",
             "author": "CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP",
             "date": "2024-12-05T08:33:10.923Z",
-            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"others\":\"\"}"
+            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"product_id\":\"hyge7482hdyeg@7875\",\"others\":\"\"}"
         }
     },
     {
@@ -464,7 +466,7 @@ const default_post = [
             "image_url": "",
             "author": "CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP",
             "date": "2024-12-05T08:31:22.163Z",
-            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"others\":\"\"}"
+            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"product_id\":\"hyge7482hdyeg@7875\",\"others\":\"\"}"
         }
     },
     {
@@ -475,7 +477,7 @@ const default_post = [
             "image_url": "",
             "author": "CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP",
             "date": "2024-12-05T08:29:52.593Z",
-            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"others\":\"\"}"
+            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"product_id\":\"hyge7482hdyeg@7875\",\"others\":\"\"}"
         }
     },
     {
@@ -486,7 +488,7 @@ const default_post = [
             "image_url": "https://w0.peakpx.com/wallpaper/256/100/HD-wallpaper-beautiful-girl-cute-pretty-sexy-girl.jpg",
             "author": "Pauline",
             "date": "2024-12-05T08:27:43.925Z",
-            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"others\":\"\"}"
+            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"product_id\":\"hyge7482hdyeg@7875\",\"others\":\"\"}"
         }
     },
     {
@@ -497,7 +499,7 @@ const default_post = [
             "image_url": "",
             "author": "CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP",
             "date": "2024-12-05T08:26:16.800Z",
-            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"others\":\"\"}"
+            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"product_id\":\"hyge7482hdyeg@7875\",\"others\":\"\"}"
         }
     },
     {
@@ -508,7 +510,7 @@ const default_post = [
             "image_url": "https://source.boomplaymusic.com/buzzgroup2/M00/38/09/rBEe_GKrLp6AQZ57AAIEdn_WNt8502.jpg",
             "author": "EKo",
             "date": "2024-12-05T08:22:49.035Z",
-            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"others\":\"\"}"
+            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"product_id\":\"hyge7482hdyeg@7875\",\"others\":\"\"}"
         }
     },
     {
@@ -519,7 +521,7 @@ const default_post = [
             "image_url": "",
             "author": "Helen",
             "date": "2024-12-05T08:20:08.428Z",
-            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"others\":\"\"}"
+            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"product_id\":\"hyge7482hdyeg@7875\",\"others\":\"\"}"
         }
     },
     {
@@ -530,7 +532,7 @@ const default_post = [
             "image_url": "",
             "author": "Joy and Mary",
             "date": "2024-12-05T08:15:04.699Z",
-            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"others\":\"\"}"
+            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"product_id\":\"hyge7482hdyeg@7875\",\"others\":\"\"}"
         }
     },
     {
@@ -541,7 +543,7 @@ const default_post = [
             "image_url": "",
             "author": "CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP",
             "date": "2024-12-05T08:10:50.488Z",
-            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"others\":\"\"}"
+            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"product_id\":\"hyge7482hdyeg@7875\",\"others\":\"\"}"
         }
     },
     {
@@ -552,7 +554,7 @@ const default_post = [
             "image_url": "",
             "author": "CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP",
             "date": "2024-12-05T07:49:48.526Z",
-            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"others\":\"\"}"
+            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"CvPigo8NKEtYhAKGuwaYxtBv76F4a6kXYYfSPpwZK7pP\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"product_id\":\"hyge7482hdyeg@7875\",\"others\":\"\"}"
         }
     }
 ]
@@ -567,7 +569,7 @@ const default_post = [
             "image_url": "",
             "author": "Game Republic",
             "date": "2024-12-22T20:06:54.116Z",
-            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"BSsCnFimdYBKhrt4gvaCePxiXcooVZvexs39yEzwoMp1\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"others\":\"\"}"
+            "others": "{\"nft\":\"false\",\"nude\":\"false\",\"encryption\":\"\",\"share\":\"false\",\"comment\":\"false\",\"main_post_id\":\"\",\"category\":\"entertainment\",\"hash\":\"\",\"pubkey\":\"BSsCnFimdYBKhrt4gvaCePxiXcooVZvexs39yEzwoMp1\",\"ip\":\"\",\"geo\":\"LAT, LONG\",\"product_id\":\"hyge7482hdyeg@7875\",\"others\":\"\"}"
         }
     },
     // Add more default posts here...
@@ -608,69 +610,76 @@ async function loadPosts() {
         postsContainer.innerHTML = "";
 
         FinalsortedData.forEach((entry) => {
-            const post = entry.metadata;
-            const postDiv = document.createElement("div");
-            postDiv.className = "post";
 
-            const trimmedAuthor = post.author.length > 15
-                ? `${post.author.slice(0, 12)}...`
-                : post.author;
+            const othersObj = JSON.parse(entry.metadata.others);
+            // console.log("from json: "+ othersObj.product_id );
+            // console.log("from variable: "+ default_product_id);
+            if(othersObj.product_id === default_product_id){
 
-            const imageTag = post.image_url ? `<img src="${post.image_url}" alt="Post Image">` : "";
-            const titleDiv = post.title ? `<div class="title">${post.title}</div>` : "";
+                const post = entry.metadata;
+                const postDiv = document.createElement("div");
+                postDiv.className = "post";
 
-            postDiv.innerHTML = `
-                ${imageTag}
-                <div class="post-header">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="7" r="4"></circle>
-                        <path d="M5.5 21h13a8.4 8.4 0 0 0-13 0z"></path>
-                    </svg>
-                    <span class="username" title="${post.author}">${trimmedAuthor}</span>
-                </div>
-                ${titleDiv}
-                <div class="content">${convertMarkdownToHtml(post.content)}</div>
-                <div class="date">${formatDate(post.date)}</div>
-                <div class="author" title="${post.author}>Posted by: ${trimmedAuthor}</div>
-                <br/>
-                
-                <div class="post-actions">
-                    <button class="like-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
-                            <path d="M8.864.46c-.743-.794-1.97-.795-2.714-.003-.329.354-.597.906-.89 1.54-.29.632-.591 1.295-.806 1.977-.214.678-.432 1.519-.579 2.59-.146 1.053-.279 2.113-.34 2.978h4.448c.416 0 .768.275.855.68l.262 1.18c.117.523.323.799.543.9.227.106.462.113.774.113.303 0 .616-.002.927-.002.682 0 1.423.078 2.02.482.604.407.993 1.105.993 2.516 0 .87-.256 1.336-.638 1.52-.369.177-.874.255-1.304.255-.393 0-.897-.065-1.261-.264-.366-.199-.632-.513-.762-.857a1.5 1.5 0 0 1-.781 1.008c-.406.228-.91.306-1.349.306H9c-1.454 0-2.208-.895-2.438-1.745l-.766-3.532H1.5a.5.5 0 0 1-.5-.5v-1.4a.5.5 0 0 1 .5-.5H6c.015-.513.022-1.024.05-1.548.036-.619.093-1.252.175-1.885.165-1.263.402-2.507.682-3.368C7.1 1.393 7.345.99 7.598.773 7.861.548 8.142.45 8.864.46z"/>
+                const trimmedAuthor = post.author.length > 15
+                    ? `${post.author.slice(0, 12)}...`
+                    : post.author;
+
+                const imageTag = post.image_url ? `<img src="${post.image_url}" alt="Post Image">` : "";
+                const titleDiv = post.title ? `<div class="title">${post.title}</div>` : "";
+
+                postDiv.innerHTML = `
+                    ${imageTag}
+                    <div class="post-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="7" r="4"></circle>
+                            <path d="M5.5 21h13a8.4 8.4 0 0 0-13 0z"></path>
                         </svg>
-                        Like
-                    </button>
-                    <button class="share-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
-                            <path d="M13.5 1a1.5 1.5 0 0 1 1.5 1.5v7.5a1.5 1.5 0 0 1-1.5 1.5h-7a1.5 1.5 0 0 1-1.5-1.5V5.707l-2.146 2.147a.5.5 0 0 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V9h5V2.5A1.5 1.5 0 0 1 13.5 1z"/>
-                        </svg>
-                        Share
-                    </button>
-                </div>
-            `;
+                        <span class="username" title="${post.author}">${trimmedAuthor}</span>
+                    </div>
+                    ${titleDiv}
+                    <div class="content">${convertMarkdownToHtml(post.content)}</div>
+                    <div class="date">${formatDate(post.date)}</div>
+                    <div class="author" title="${post.author}>Posted by: ${trimmedAuthor}</div>
+                    <br/>
+                    
+                    <div class="post-actions">
+                        <button class="like-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
+                                <path d="M8.864.46c-.743-.794-1.97-.795-2.714-.003-.329.354-.597.906-.89 1.54-.29.632-.591 1.295-.806 1.977-.214.678-.432 1.519-.579 2.59-.146 1.053-.279 2.113-.34 2.978h4.448c.416 0 .768.275.855.68l.262 1.18c.117.523.323.799.543.9.227.106.462.113.774.113.303 0 .616-.002.927-.002.682 0 1.423.078 2.02.482.604.407.993 1.105.993 2.516 0 .87-.256 1.336-.638 1.52-.369.177-.874.255-1.304.255-.393 0-.897-.065-1.261-.264-.366-.199-.632-.513-.762-.857a1.5 1.5 0 0 1-.781 1.008c-.406.228-.91.306-1.349.306H9c-1.454 0-2.208-.895-2.438-1.745l-.766-3.532H1.5a.5.5 0 0 1-.5-.5v-1.4a.5.5 0 0 1 .5-.5H6c.015-.513.022-1.024.05-1.548.036-.619.093-1.252.175-1.885.165-1.263.402-2.507.682-3.368C7.1 1.393 7.345.99 7.598.773 7.861.548 8.142.45 8.864.46z"/>
+                            </svg>
+                            Like
+                        </button>
+                        <button class="share-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                                <path d="M13.5 1a1.5 1.5 0 0 1 1.5 1.5v7.5a1.5 1.5 0 0 1-1.5 1.5h-7a1.5 1.5 0 0 1-1.5-1.5V5.707l-2.146 2.147a.5.5 0 0 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V9h5V2.5A1.5 1.5 0 0 1 13.5 1z"/>
+                            </svg>
+                            Share
+                        </button>
+                    </div>
+                `;
 
-            // Like Button Alert
-            postDiv.querySelector(".like-button").addEventListener("click", async (event) => {
-                event.stopPropagation();
-                await d_post_liker(entry);
-                alert(`You liked: "${post.title}"`);
-            });
+                // Like Button Alert
+                postDiv.querySelector(".like-button").addEventListener("click", async (event) => {
+                    event.stopPropagation();
+                    await d_post_liker(entry);
+                    alert(`You liked: "${post.title}"`);
+                });
 
-            // Share Button Alert
-            postDiv.querySelector(".share-button").addEventListener("click", async (event) => {
-                event.stopPropagation();
-                await d_post_sharer(entry);
-                alert(`You shared: "${post.title}"`);
-            });
+                // Share Button Alert
+                postDiv.querySelector(".share-button").addEventListener("click", async (event) => {
+                    event.stopPropagation();
+                    await d_post_sharer(entry);
+                    alert(`You shared: "${post.title}"`);
+                });
 
-            // Add an onclick event for the entire post
-            postDiv.addEventListener("click", (event) => {
-                if (event.target.closest("button")) return; // Ignore clicks on buttons
-                showPostPopup(post);
-            });
+                // Add an onclick event for the entire post
+                postDiv.addEventListener("click", (event) => {
+                    if (event.target.closest("button")) return; // Ignore clicks on buttons
+                    showPostPopup(post);
+                });
 
-            postsContainer.appendChild(postDiv);
+                postsContainer.appendChild(postDiv);
+            }
         });
     } catch (error) {
         console.error("Error loading posts - Loading from Defaults alone:", error);

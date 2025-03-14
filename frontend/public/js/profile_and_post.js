@@ -10,6 +10,8 @@ dzTPXfB1KuP5bMo8sPvz6Nb2Zw9vB8rvW/iQnlrLq9OGefQDr2QfxUdQLJVwCBnv
 IQIDAQAB
 -----END PUBLIC KEY-----`;
 
+let product_unique_id = "hyge7482hdyeg@7875";
+
 /* const serverPublicKeyPem = `-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtHgtagCME1poS0dvx43g
 BsRW9tkrLQKXqraLSc2hltMTbWMv8IVQPJvJkAtzBGtb0u1hjH8l4Q1AXkio348R
@@ -1021,11 +1023,12 @@ async function make_some_post({
         share: "false",
         comment: "false",
         main_post_id: "", 
-        category: "entertainment",
+        category: "romance",
         hash: "",
         pubkey: keypair.publicKey.toBase58(),
         ip: "",
         geo: "LAT, LONG",
+        product_id: product_unique_id,
         others: ""
     },
     encryption_type = "" // New parameter
@@ -1149,11 +1152,12 @@ async function d_post_sharer(entry){
             share: "true",
             comment: "false",
             main_post_id: "", 
-            category: "entertainment", // "technology",
+            category: "romance", // "technology",
             hash: "",
             pubkey: keypair.publicKey.toBase58(),
             ip: "", // TODO: we would get this...
             geo: ",", //TODO: We would get this and it would be the LAT,LONG
+            product_id: product_unique_id,
             others: ""
         })
     });
