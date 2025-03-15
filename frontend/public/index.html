@@ -22,7 +22,7 @@
     <!-- <script src="js/marked.min.js" defer></script> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     
-    <script src="js/general.js?ti=<?=time()?>id=738785935792949" defer></script>
+    <script src="js/general.js?ti=<?=time()?>id=8948575838947" defer></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script> -->
 
     <link rel="stylesheet" href="styles/general.css?id=74657383758">
@@ -259,6 +259,144 @@
       </div>
     </div>
   </div>
+
+
+
+<!-- Wallet Funding Pop-up -->
+<div id="walletFundingPopup" class="wallet-popup">
+    <div class="wallet-popup-content">
+        <!-- Close Button -->
+        <button onclick="closeWalletFundingPopup()" class="close-button">×</button>
+
+        <!-- Sonic Logo -->
+        <img src="https://img.cryptorank.io/coins/sonic1718716387929.png" alt="Sonic SVM Logo" class="sonic-logo">
+
+        <!-- Title -->
+        <h2>Wallet Funding Required</h2>
+
+        <!-- Description -->
+        <p>Your wallet balance is less than <strong>0.5 SOL</strong>. To perform certain actions, you need to fund your wallet and bridge your SOL into the Sonic SVM ecosystem.</p>
+
+        <!-- Buy SOL Button -->
+        <a href="https://www.binance.com/en/buy-Solana" target="_blank" class="action-button buy-sol-button">
+            💳 Buy SOL
+        </a>
+
+        <!-- Bridge SOL Button -->
+        <a href="https://bridge.sonic.game/" target="_blank" class="action-button bridge-button">
+            🌉 Bridge SOL to Sonic SVM
+        </a>
+    </div>
+</div>
+
+<style>
+/* Wallet Funding Pop-up Styles */
+.wallet-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.wallet-popup-content {
+    background: #1E1E1E;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 450px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #00FF88;
+}
+
+/* Sonic Logo */
+.sonic-logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+/* Title */
+.wallet-popup h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+/* Description */
+.wallet-popup p {
+    font-size: 16px;
+    color: #ccc;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Action Buttons */
+.action-button {
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    text-align: center;
+}
+
+.buy-sol-button {
+    background: linear-gradient(135deg, #00FF88, #00CC66);
+    color: #000;
+}
+
+.bridge-button {
+    background: linear-gradient(135deg, #8A00FF, #6A00CC);
+    color: #fff;
+}
+
+.action-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
 
 
   <script src="js/profile_and_post.js?tim=<?=time()?>id=932085795735" defer></script>

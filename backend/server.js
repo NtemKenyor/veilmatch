@@ -100,8 +100,11 @@ const NETWORK_RPC_ENDPOINTS = {
     ],
     devnet: [
         // 'https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317', // Backup 1
-        'https://api.devnet.solana.com', // Primary
+        // 'https://api.devnet.solana.com', // Primary
+        'https://api.testnet.sonic.game/',
     ],
+    development: ['https://api.testnet.sonic.game/',],
+    dev: ['https://api.testnet.sonic.game/',],
     localnet: [
         'http://127.0.0.1:8899', // Primary (local node)
     ],

@@ -224,7 +224,9 @@ async function setupNetworkbyUrl(network) {
     } else if (network === "dev" || network === "devnet") {
         window.NODE_URL = "https://roynek.com/veilmatch/backend";
         window.PHP_URL = "https://roynek.com/cloudS/interact/server";
-        window.connection = new solanaWeb3.Connection('https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317', 'confirmed');
+        // window.connection = new solanaWeb3.Connection('https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317', 'confirmed');
+        return new solanaWeb3.Connection('https://api.testnet.sonic.game/', 'confirmed');
+
     } else if (network === "local" || network === "localnet") {
         window.NODE_URL = "http://localhost:3000/veilmatch/backend";
         window.PHP_URL = "http://localhost/cloudS/interact/server";
@@ -247,7 +249,10 @@ async function BuildNetwork(network) {
     } else if (network === "dev" || network === "devnet") {
         window.NODE_URL = "https://roynek.com/veilmatch/backend";
         window.PHP_URL = "https://roynek.com/cloudS/interact/server";
-       return new solanaWeb3.Connection('https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317', 'confirmed');
+        
+        // return new solanaWeb3.Connection('https://spring-quick-surf.solana-devnet.quiknode.pro/016ff48f0f7c3f1520e515c01dca9a83ef528317', 'confirmed');
+
+        return new solanaWeb3.Connection('https://api.testnet.sonic.game/', 'confirmed');
     } else if (network === "local" || network === "localnet") {
         window.NODE_URL = "http://localhost:3000/veilmatch/backend";
         window.PHP_URL = "http://localhost/cloudS/interact/server";
@@ -978,7 +983,7 @@ function loadPrivateKeyFile(event) {
 // const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('devnet'), 'confirmed');
 
 // Fetch wallet balance
-async function getBalance() {
+/* async function getBalance() {
     if (!keypair) {
         alert('No wallet found. Create or load a wallet first.');
         return;
@@ -991,7 +996,39 @@ async function getBalance() {
     document.getElementById('balance').textContent = 'Balance: ' + (Math.floor((balance / solanaWeb3.LAMPORTS_PER_SOL) * 100) / 100) + ' SOL';
 
     // little_profile();
+} */
+
+// Fetch wallet balance
+async function getBalance() {
+    if (!keypair) {
+        alert('No wallet found. Create or load a wallet first.');
+        return;
+    }
+
+    const balance = await window.connection.getBalance(keypair.publicKey);
+    console.log("The Wallet balance: " + balance);
+
+    const balanceInSOL = Math.floor((balance / solanaWeb3.LAMPORTS_PER_SOL) * 100) / 100;
+    document.getElementById('balance').textContent = '💰: ' + balanceInSOL + ' SOL';
+
+    // Show pop-up if balance is less than 0.5 SOL
+    if (balanceInSOL < 0.5) {
+        showWalletFundingPopup();
+    }
 }
+
+// Show wallet funding pop-up
+function showWalletFundingPopup() {
+    const popup = document.getElementById('walletFundingPopup');
+    popup.style.display = 'flex';
+}
+
+// Close wallet funding pop-up
+function closeWalletFundingPopup() {
+    const popup = document.getElementById('walletFundingPopup');
+    popup.style.display = 'none';
+}
+
 
 // async function little_profile(){
 //     // const balanceDisplay = document.getElementById('balance');
