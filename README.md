@@ -93,9 +93,9 @@ We welcome contributions! Please read our **[CONTRIBUTING.md](./CONTRIBUTING.md)
 This project is licensed under the **MIT License**. See the **[LICENSE](./LICENSE)** file for details.  
 
 ## **Connect With Us**  
-🔗 **Website:** [veilmatch.io](https://veilmatch.io)  
+🔗 **Website:** [veilmatch](https://roynek.com/veilmatch/frontend/public/)  
 🐦 **Twitter/X:** [@VeilMatch](https://twitter.com/VeilMatch)  
-💬 **Discord:** [Join the Community](https://discord.gg/veilmatch)
+<!-- 💬 **Discord:** [Join the Community](https://discord.gg/veilmatch) -->
 
 
 ----
