@@ -147,7 +147,7 @@ app.get(MAIN_DIR+"/api/metadata", async (req, res) => {
     const rpcUrl = await getAvailableRpcEndpoint(dNetwork);
     // const connection = new Connection(rpcUrl, 'confirmed');
 
-    const metadata = await fetchMetadataForAccounts(rpcUrl);
+    const metadata = await fetchMetadataForAccounts(rpcUrl, dNetwork);
     res.json(metadata);
 });
 
@@ -204,7 +204,7 @@ app.post(MAIN_DIR+"/api/create-post", async (req, res) => {
         // const connection = new Connection(rpcUrl, 'confirmed');
 
         // Proceed to create the post on the blockchain
-        const {signature, program_account} = await createPost(userKeypair, metadata, rpcUrl);
+        const {signature, program_account} = await createPost(userKeypair, metadata, rpcUrl, dNetwork);
         res.json({ status: "True", message: "Post created successfully", edit_key: program_account, signature });
         
     } catch (err) {

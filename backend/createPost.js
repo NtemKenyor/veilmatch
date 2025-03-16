@@ -5,7 +5,10 @@ const { serialize } = require("borsh");
 // Program ID and connection setup//
 // const programId = new PublicKey("7sGT7oBKSetii8mspduzWR8EeYq86z51v9BdwfkEW2Wr");
 // const programId = new PublicKey("CYuj8Uxj9dVzEN5Gi6SVzfbEHjcfwuDLCtYpvZ7tYnqz");
-const programId = new PublicKey("A6GEfSbfhFa1H41sUVfeyZM9riLi3SdGaEjGjHaxFQvs");
+let programId = new PublicKey("A6GEfSbfhFa1H41sUVfeyZM9riLi3SdGaEjGjHaxFQvs");
+let devProgramId = new PublicKey("9nMPH3iL7LavTZXXSHQbkEf6f2yxx937vPRgjUviBRn9");
+
+// Devnet = Program Id: 9nMPH3iL7LavTZXXSHQbkEf6f2yxx937vPRgjUviBRn9
 // const programId = new PublicKey("J2CNybqbZfJTaeBxvXtTWGUW3KQQy7BACajWqPHfMCf4");
 
 
@@ -99,10 +102,14 @@ async function createPost(userKeypair, metadata, network="mainnet") {
 }
  */
 
-async function createPost(userKeypair, metadata, rpcUrl) {
+async function createPost(userKeypair, metadata, rpcUrl, network) {
     const postAccount = Keypair.generate();
     const metadataWithUtc = new PostMetadata(metadata); // Ensure date defaults to UTC if not provided
 
+    //use devnet program_id if network is devnet
+    if(network === "devnet" || network === "dev"){
+        programId = devProgramId;
+    }
     // Get the first available RPC endpoint for the specified network
     // const rpcUrl = await getAvailableRpcEndpoint(network);
     const connection = new Connection(rpcUrl, 'confirmed');
