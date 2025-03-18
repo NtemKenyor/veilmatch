@@ -1241,6 +1241,7 @@ document.getElementById('home')?.addEventListener('click', () => userRedirect("i
 document.getElementById('message_item')?.addEventListener('click', () => userRedirect("messenger.html"));
 document.getElementById('games')?.addEventListener('click', () => userRedirect("games.html"));
 document.getElementById('about_us')?.addEventListener('click', () => userRedirect("white-paper.html") );
+document.getElementById('ai_match')?.addEventListener('click', () => userRedirect("AI_matcher.html") );
 
 
 // const profileElement = document.getElementById('profile');
