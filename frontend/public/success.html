@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful</title>
+    <script src="js/solana-web3.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+            color: white;
+            font-family: "Poppins", Arial, sans-serif;
+            text-align: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .container {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .checkmark {
+            font-size: 90px;
+            color: #4CAF50;
+            text-shadow: 0 0 20px rgba(76, 175, 80, 0.8);
+            animation: bounce 1s infinite alternate;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-top: 10px;
+            text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+            animation: fadeInText 2s ease-in-out;
+        }
+        p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            animation: fadeInText 2.5s ease-in-out;
+        }
+        .progress-container {
+            width: 80%;
+            max-width: 400px;
+            background-color: #333;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 20px;
+            height: 10px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #4CAF50;
+            transition: width 1s linear;
+        }
+        .countdown {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-top: 15px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes fadeInText {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="checkmark">✔</div>
+        <h1>Payment Successful</h1>
+        <p>Thank you for your payment. You will be redirected shortly...</p>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="countdown" id="countdown"></div>
+    </div>
+    <script>
+        let totalTime = 10; // Total time in seconds
+        let progressBar = document.getElementById("progressBar");
+        let countdown = document.getElementById("countdown");
+
+        function updateTimer() {
+            let timeLeft = totalTime;
+
+            let interval = setInterval(() => {
+                timeLeft--;
+                progressBar.style.width = (timeLeft / totalTime) * 100 + "%";
+
+                // Show countdown in the last 3 seconds
+                if (timeLeft <= 3) {
+                    countdown.style.opacity = "1";
+                    countdown.textContent = timeLeft;
+                } else {
+                    countdown.style.opacity = "0";
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(interval);
+
+                    // Get the current URL parameters
+                    let params = new URLSearchParams(window.location.search);
+                    let queryString = params.toString(); // Convert to string
+
+                    // Redirect to index.html with parameters
+                    let newURL = "index.html" + (queryString ? "?" + queryString : "");
+                    window.location.href = newURL;
+                }
+            }, 1000);
+        }
+
+        updateTimer();
+
+        // Global variables
+        let keypair;
+        let walletAddress;
+
+        // Function to load the stored wallet from localStorage
+        async function loadStoredWallet_Pay() {
+            const privateKey = localStorage.getItem('solana_private_key');
+            if (privateKey) {
+                keypair = solanaWeb3.Keypair.fromSecretKey(Uint8Array.from(JSON.parse(privateKey)));
+                walletAddress = keypair.publicKey.toString(); // Set the wallet address
+                console.log('Wallet loaded:', walletAddress);
+            } else {
+                console.warn('No private key found in localStorage.');
+                // Prompt the user to provide a public wallet address
+                walletAddress = prompt('Please enter your Solana wallet address to receive funds:');
+                if (!walletAddress) {
+                    console.error('No wallet address provided.');
+                    alert('You must provide a wallet address to proceed.');
+                    return;
+                }
+                console.log('Using provided wallet address:', walletAddress);
+            }
+        }
+
+        // Function to make the GET request to the payout endpoint
+        async function makePayoutRequest() {
+            // Step 1: Ensure the wallet is loaded
+            await loadStoredWallet_Pay();
+            if (!walletAddress) {
+                console.error('Wallet address is not available.');
+                return;
+            }
+
+            // Step 2: Extract all query parameters from the current URL
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // Step 3: Add the wallet address to the query parameters
+            urlParams.set('wallet', walletAddress);
+
+            // Step 4: Construct the full URL for the API request
+            const apiUrl = `https://roynek.com/sonicvault512/backend/api/payout?${urlParams.toString()}`;
+
+            // Step 5: Make a GET request to the endpoint
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Step 6: Print the JSON response to the console for debugging
+                    console.log('API Response:', data);
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }
+
+        // Call the function to make the payout request when the document is loaded
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     console.log('Document loaded. Making payout request...');
+        //     makePayoutRequest();
+        // });
+        makePayoutRequest();
+
+        
+    </script>
+</body>
+</html>

@@ -374,7 +374,7 @@ async function little_profile() {
     const finalPublicKey = userPublicKey || "defaultPublicKey12345";
 
     // Default values
-    const defaultEmail = "user@example.com";
+    const defaultEmail = "";
     const defaultDisplayName = "Default User";
 
     // Retrieve input elements
